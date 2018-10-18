@@ -2,10 +2,23 @@ require 'sinatra'
 require 'sentimental'
 require 'json'
 
-get '/' do 
+get '/' do
   content_type 'application/json'
   {
-    greeting: 'hello'
+    greeting: 'Welcome to the Inclination Sentiment Analysis microservice.',
+    endpoints: [
+      {
+        http_verb: 'GET',
+        description: 'verification that app is running',
+        url_pattern: '/echo'
+      },
+      {
+        http_verb: 'POST',
+        description: 'sentiment analysis service, should be string of text',
+        params: 'text',
+        url_pattern: '/sentiment'
+      },
+    ]
   }.to_json
 end
 
