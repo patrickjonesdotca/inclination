@@ -22,7 +22,7 @@ get '/' do
   }.to_json
 end
 
-post '/echo' do
+get '/echo' do
   content_type 'application/json'
   {
     params: params
